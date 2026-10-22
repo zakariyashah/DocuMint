@@ -12,7 +12,10 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-documint-developmen
 DEBUG = os.getenv('DEBUG', 'True').lower() in ('true', '1', 't')
 
 # Security & Host configuration (Pre-configured for Cloudflare Tunnels & Custom Domains)
-ALLOWED_HOSTS = [h.strip() for h in os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1,testserver,.trycloudflare.com').split(',') if h.strip()]
+ALLOWED_HOSTS = [h.strip() for h in os.getenv('ALLOWED_HOSTS', '*').split(',') if h.strip()]
+for h in ('.trycloudflare.com', '.onrender.com', 'localhost', '127.0.0.1'):
+    if h not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(h)
 
 # Inform Django that Cloudflare or reverse proxy terminates SSL/HTTPS
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

@@ -37,6 +37,8 @@ db.sqlite3-journal
 staticfiles/
 scratch/
 push_to_github.bat
+cloudflared.exe
+start_tunnel.bat
 
 # Environment variables
 .env
