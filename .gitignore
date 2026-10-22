@@ -39,6 +39,8 @@ scratch/
 push_to_github.bat
 cloudflared.exe
 start_tunnel.bat
+config.yml
+*.yml
 
 # Environment variables
 .env
