@@ -36,6 +36,7 @@ db.sqlite3-journal
 /vector_store/
 staticfiles/
 scratch/
+push_to_github.bat
 
 # Environment variables
 .env
