@@ -1,0 +1,812 @@
+/* ==========================================================================
+   DocuMint — Enterprise Document Intelligence Platform
+   Client-Ready Design System & Component Architecture
+   ========================================================================== */
+
+:root {
+    /* Brand Colors: Deep Navy, Slate, Vibrant Teal, Accent Blue */
+    --docu-navy: #0F172A;
+    --docu-slate: #1E293B;
+    --docu-slate-subtle: #334155;
+    --docu-teal: #0D9488;
+    --docu-teal-hover: #0F766E;
+    --docu-teal-light: #F0FDFA;
+    --docu-teal-border: #CCFBF1;
+    --docu-accent: #2563EB;
+    --docu-bg: #F8FAFC;
+    --docu-surface: #FFFFFF;
+    --docu-text-main: #0F172A;
+    --docu-text-secondary: #475569;
+    --docu-text-muted: #64748B;
+    --docu-border: #E2E8F0;
+    --docu-border-subtle: #F1F5F9;
+    --docu-success: #16A34A;
+    --docu-success-light: #F0FDF4;
+    --docu-error: #DC2626;
+    --docu-error-light: #FEF2F2;
+    --docu-warning: #D97706;
+    --docu-warning-light: #FFFBEB;
+    
+    /* Typography */
+    --docu-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    --docu-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    
+    /* Radii & Shadows */
+    --docu-radius-sm: 6px;
+    --docu-radius: 8px;
+    --docu-radius-lg: 12px;
+    --docu-radius-xl: 16px;
+    --docu-shadow-2xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+    --docu-shadow-xs: 0 1px 3px rgba(15, 23, 42, 0.08);
+    --docu-shadow-sm: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+    --docu-shadow-md: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+    --docu-transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base App Setup */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--docu-font-sans);
+    color: var(--docu-text-main);
+    background-color: var(--docu-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.extra-small {
+    font-size: 0.76rem;
+}
+
+.text-teal {
+    color: var(--docu-teal) !important;
+}
+
+.bg-teal-subtle {
+    background-color: var(--docu-teal-light) !important;
+}
+
+.bg-slate-subtle {
+    background-color: #F8FAFC !important;
+}
+
+/* Custom Primary Button Styles */
+.btn-primary {
+    background-color: var(--docu-teal);
+    border-color: var(--docu-teal);
+    color: #FFFFFF;
+    font-weight: 500;
+    border-radius: var(--docu-radius);
+    transition: var(--docu-transition);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--docu-teal-hover);
+    border-color: var(--docu-teal-hover);
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.25);
+}
+
+.btn-icon-subtle {
+    background: transparent;
+    border: 1px solid var(--docu-border);
+    color: var(--docu-text-secondary);
+    border-radius: var(--docu-radius-sm);
+    padding: 4px 8px;
+    transition: var(--docu-transition);
+}
+
+.btn-icon-subtle:hover {
+    background-color: var(--docu-border-subtle);
+    color: var(--docu-navy);
+}
+
+/* App Header */
+.app-header {
+    height: 64px;
+    background-color: #FFFFFF;
+    border-color: var(--docu-border) !important;
+    z-index: 1020;
+    position: relative;
+}
+
+.brand-logo-badge {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--docu-navy) 0%, var(--docu-teal) 100%);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--docu-radius);
+    font-size: 1.15rem;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15);
+}
+
+.brand-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--docu-navy);
+    line-height: 1.2;
+}
+
+.brand-subtitle {
+    font-size: 0.72rem;
+    color: var(--docu-text-muted);
+    font-weight: 500;
+    display: block;
+    letter-spacing: -0.01em;
+}
+
+/* Top Workflow Navigation Tabs */
+.header-nav-tabs {
+    background-color: #F1F5F9;
+    padding: 3px;
+    border-radius: var(--docu-radius);
+    border: 1px solid var(--docu-border);
+}
+
+.nav-tab-btn {
+    border: none;
+    background: transparent;
+    color: var(--docu-text-secondary);
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: var(--docu-radius-sm);
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--docu-transition);
+}
+
+.nav-tab-btn:hover {
+    color: var(--docu-navy);
+}
+
+.nav-tab-btn.active {
+    background-color: #FFFFFF;
+    color: var(--docu-teal);
+    font-weight: 600;
+    box-shadow: var(--docu-shadow-xs);
+}
+
+/* Status Indicators */
+.status-pill {
+    font-size: 0.78rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-dot-active {
+    background-color: var(--docu-success);
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+}
+
+/* Evidence Mode Action Toggle */
+.btn-action-toggle {
+    border: 1px solid var(--docu-border);
+    background-color: #FFFFFF;
+    color: var(--docu-text-secondary);
+    border-radius: var(--docu-radius);
+    font-size: 0.82rem;
+    padding: 5px 12px;
+    transition: var(--docu-transition);
+}
+
+.btn-action-toggle:hover {
+    background-color: var(--docu-border-subtle);
+    border-color: #CBD5E1;
+}
+
+.btn-action-toggle.active {
+    background-color: var(--docu-teal-light);
+    border-color: var(--docu-teal-border);
+    color: var(--docu-teal);
+}
+
+/* App Workspace Container */
+.app-workspace {
+    height: calc(100vh - 64px);
+}
+
+/* ==========================================================================
+   LEFT SIDEBAR: DOCUMENT LIBRARY
+   ========================================================================== */
+.doc-sidebar {
+    width: 320px;
+    min-width: 320px;
+    max-width: 320px;
+    border-color: var(--docu-border) !important;
+    z-index: 1010;
+    transition: transform 0.25s ease-in-out;
+}
+
+.sidebar-heading {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--docu-navy);
+}
+
+/* Drop Zone Upload Card */
+.drop-zone {
+    border-color: #CBD5E1 !important;
+    border-style: dashed !important;
+    border-width: 2px !important;
+    border-radius: var(--docu-radius) !important;
+    transition: var(--docu-transition);
+}
+
+.drop-zone:hover, .drop-zone.drag-active {
+    border-color: var(--docu-teal) !important;
+    background-color: var(--docu-teal-light) !important;
+}
+
+.drop-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--docu-teal-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Document Cards */
+.doc-card {
+    border-color: var(--docu-border);
+    background-color: #FFFFFF;
+    border-radius: var(--docu-radius);
+    transition: var(--docu-transition);
+}
+
+.doc-card:hover {
+    border-color: #94A3B8;
+    box-shadow: var(--docu-shadow-xs);
+    transform: translateY(-1px);
+}
+
+.doc-select-checkbox {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--docu-teal);
+}
+
+.doc-filename {
+    color: var(--docu-text-main);
+}
+
+.empty-icon-circle {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-color: #F1F5F9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   MAIN CENTRAL WORKSPACE
+   ========================================================================== */
+.chat-workspace {
+    background-color: #F8FAFC;
+    border-color: var(--docu-border) !important;
+}
+
+.workspace-subbar {
+    height: 44px;
+    border-color: var(--docu-border) !important;
+}
+
+/* Welcome Card */
+.welcome-card {
+    border-radius: var(--docu-radius-lg);
+    background-color: #FFFFFF;
+    border-color: var(--docu-border) !important;
+}
+
+.welcome-icon-box {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Suggested Question Chips */
+.suggested-chip {
+    font-size: 0.8rem;
+    font-weight: 500;
+    background-color: #FFFFFF;
+    border-color: var(--docu-border);
+    color: var(--docu-text-main);
+    border-radius: 20px;
+    transition: var(--docu-transition);
+}
+
+.suggested-chip:hover {
+    background-color: var(--docu-teal-light);
+    border-color: var(--docu-teal);
+    color: var(--docu-teal);
+    transform: translateY(-1px);
+}
+
+/* Chat Message Bubbles */
+.user-bubble {
+    background: linear-gradient(135deg, var(--docu-navy) 0%, var(--docu-slate) 100%);
+    color: #FFFFFF;
+    border-radius: var(--docu-radius-lg) var(--docu-radius-lg) 2px var(--docu-radius-lg) !important;
+    box-shadow: var(--docu-shadow-xs);
+}
+
+.assistant-bubble {
+    background-color: #FFFFFF;
+    border: 1px solid var(--docu-border);
+    color: var(--docu-text-main);
+    border-radius: var(--docu-radius-lg) var(--docu-radius-lg) var(--docu-radius-lg) 2px !important;
+    box-shadow: var(--docu-shadow-xs);
+}
+
+.citation-pill {
+    cursor: pointer;
+    transition: var(--docu-transition);
+    font-weight: 500;
+    padding: 3px 8px;
+    text-decoration: none;
+}
+
+.citation-pill:hover {
+    background-color: var(--docu-teal-light) !important;
+    border-color: var(--docu-teal) !important;
+    color: var(--docu-teal) !important;
+}
+
+/* Client-Ready Evidence Inspection Box */
+.evidence-inspection-box {
+    background-color: #F8FAFC;
+    border: 1px solid var(--docu-border);
+    border-radius: var(--docu-radius);
+    padding: 12px;
+}
+
+.evidence-tier-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: var(--docu-radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tier-strong {
+    background-color: var(--docu-success-light);
+    color: var(--docu-success);
+    border: 1px solid rgba(22, 163, 74, 0.25);
+}
+
+.tier-moderate {
+    background-color: var(--docu-teal-light);
+    color: var(--docu-teal);
+    border: 1px solid var(--docu-teal-border);
+}
+
+.tier-borderline {
+    background-color: var(--docu-warning-light);
+    color: var(--docu-warning);
+    border: 1px solid rgba(217, 119, 6, 0.25);
+}
+
+.telemetry-pill {
+    background-color: #FFFFFF;
+    color: var(--docu-text-secondary);
+    padding: 2px 8px;
+    border-radius: var(--docu-radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid var(--docu-border);
+    font-size: 0.72rem;
+}
+
+.evidence-chunk-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--docu-border);
+    border-radius: var(--docu-radius-sm);
+    transition: var(--docu-transition);
+}
+
+.evidence-chunk-card:hover {
+    border-color: var(--docu-teal);
+}
+
+.evidence-chunk-header {
+    cursor: pointer;
+    user-select: none;
+}
+
+.evidence-chunk-body {
+    background-color: #F8FAFC;
+    border-top: 1px solid var(--docu-border-subtle);
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--docu-text-main);
+}
+
+/* Chat Composer Area */
+.composer-container {
+    border-color: var(--docu-border) !important;
+}
+
+#query-input {
+    resize: none;
+    font-size: 0.92rem;
+    border-color: var(--docu-border);
+    border-radius: var(--docu-radius) 0 0 var(--docu-radius);
+    padding: 0.75rem 1rem;
+    box-shadow: none;
+}
+
+#query-input:focus {
+    border-color: var(--docu-teal);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+#send-btn {
+    border-radius: 0 var(--docu-radius) var(--docu-radius) 0;
+}
+
+/* ==========================================================================
+   RIGHT PANEL: VERIFIED REFERENCES DRAWER
+   ========================================================================== */
+.source-panel {
+    width: 360px;
+    min-width: 360px;
+    max-width: 360px;
+    border-color: var(--docu-border) !important;
+    z-index: 1010;
+    transition: transform 0.25s ease-in-out;
+}
+
+.source-item-card {
+    border-color: var(--docu-border);
+    background-color: #FFFFFF;
+    border-radius: var(--docu-radius);
+    transition: var(--docu-transition);
+}
+
+.source-item-card:hover {
+    border-color: var(--docu-teal);
+    box-shadow: var(--docu-shadow-xs);
+}
+
+.score-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    background-color: var(--docu-success-light);
+    color: var(--docu-success);
+    border: 1px solid rgba(22, 163, 74, 0.2);
+    padding: 2px 7px;
+    border-radius: var(--docu-radius-sm);
+}
+
+.source-snippet {
+    color: var(--docu-text-secondary);
+    line-height: 1.5;
+    font-style: italic;
+}
+
+/* Markdown Rendering in Assistant & Comparison Views */
+.markdown-body {
+    line-height: 1.6;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4 {
+    color: var(--docu-navy);
+    font-weight: 700;
+    margin-top: 0.8rem;
+    margin-bottom: 0.4rem;
+}
+
+.markdown-body h3 {
+    font-size: 0.98rem;
+}
+
+.markdown-body h4 {
+    font-size: 0.88rem;
+}
+
+.markdown-body p {
+    margin-bottom: 0.55rem;
+}
+
+.markdown-body ul, .markdown-body ol {
+    padding-left: 1.25rem;
+    margin-bottom: 0.55rem;
+}
+
+.markdown-body li {
+    margin-bottom: 0.25rem;
+}
+
+.markdown-body strong {
+    color: var(--docu-navy);
+    font-weight: 600;
+}
+
+.markdown-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.82rem;
+}
+
+.markdown-body th, .markdown-body td {
+    border: 1px solid var(--docu-border);
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.markdown-body th {
+    background-color: #F1F5F9;
+    font-weight: 600;
+    color: var(--docu-navy);
+}
+
+.markdown-body tr:nth-child(even) {
+    background-color: #F8FAFC;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+}
+
+/* Responsive Drawers for Tablets & Mobile */
+@media (max-width: 1200px) {
+    .source-panel {
+        position: fixed;
+        right: 0;
+        top: 64px;
+        bottom: 0;
+        transform: translateX(100%);
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .source-panel.drawer-open {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 991px) {
+    .doc-sidebar {
+        position: fixed;
+        left: 0;
+        top: 64px;
+        bottom: 0;
+        transform: translateX(-100%);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .doc-sidebar.drawer-open {
+        transform: translateX(0);
+    }
+}
+
+/* ==========================================================================
+   Enterprise Authentication & User Profile Styling
+   ========================================================================== */
+
+/* Header Google Sign In Button */
+.btn-google-header {
+    background-color: #FFFFFF;
+    border: 1px solid var(--docu-border);
+    color: var(--docu-text-main);
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: var(--docu-radius);
+    transition: var(--docu-transition);
+    box-shadow: var(--docu-shadow-2xs);
+    cursor: pointer;
+}
+
+.btn-google-header:hover {
+    background-color: #F8FAFC;
+    border-color: #CBD5E1;
+    color: var(--docu-navy);
+    box-shadow: var(--docu-shadow-xs);
+}
+
+/* Modal Google Sign In Button */
+.btn-google-primary {
+    background-color: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    color: var(--docu-slate);
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: var(--docu-radius);
+    transition: var(--docu-transition);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.btn-google-primary:hover {
+    background-color: #F8FAFC;
+    border-color: #94A3B8;
+    color: #0F172A;
+    box-shadow: 0 3px 8px rgba(15, 23, 42, 0.12);
+}
+
+/* Quick Identity Selector Chips */
+.quick-identity-btn {
+    font-size: 0.78rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--docu-border);
+    background-color: #FFFFFF;
+    color: var(--docu-text-secondary);
+    transition: var(--docu-transition);
+    cursor: pointer;
+    text-align: left;
+}
+
+.quick-identity-btn:hover {
+    background-color: var(--docu-teal-light);
+    border-color: var(--docu-teal);
+    color: var(--docu-teal-hover);
+}
+
+/* Evaluator Fast Login Button */
+.btn-evaluator-fast {
+    background-color: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    color: #166534;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 9px 16px;
+    border-radius: var(--docu-radius);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--docu-transition);
+    cursor: pointer;
+}
+
+.btn-evaluator-fast:hover {
+    background-color: #DCFCE7;
+    border-color: #86EFAC;
+    color: #14532D;
+}
+
+/* User Profile Badge in Header */
+.user-profile-badge {
+    background-color: #FFFFFF;
+    border: 1px solid var(--docu-border);
+    padding: 3px 10px 3px 4px;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: var(--docu-transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.user-profile-badge:hover, .user-profile-badge:focus {
+    background-color: #F8FAFC;
+    border-color: #CBD5E1;
+    box-shadow: var(--docu-shadow-xs);
+    color: inherit;
+}
+
+.user-avatar-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid var(--docu-teal);
+}
+
+.user-avatar-initials {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--docu-teal), #0284C7);
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-profile-dropdown {
+    min-width: 260px;
+    border: 1px solid var(--docu-border);
+    box-shadow: var(--docu-shadow-md);
+    border-radius: var(--docu-radius);
+    padding: 8px 0;
+}
+
+/* Auth Modal Tabs */
+.auth-tab-link {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--docu-text-secondary);
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 8px 16px;
+    background: transparent;
+    cursor: pointer;
+    transition: var(--docu-transition);
+}
+
+.auth-tab-link.active {
+    color: var(--docu-teal);
+    border-bottom-color: var(--docu-teal);
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--docu-text-muted);
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 16px 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--docu-border);
+}
+
+.auth-divider:not(:empty)::before {
+    margin-right: 0.75em;
+}
+
+.auth-divider:not(:empty)::after {
+    margin-left: 0.75em;
+}
+

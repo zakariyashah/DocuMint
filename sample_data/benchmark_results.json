@@ -1,0 +1,71 @@
+{
+  "test_6_txt": {
+    "doc_id": 7,
+    "filename": "demo_document.txt",
+    "chunks": 2,
+    "ingest_ms": 68.8,
+    "vector_index_ms": 59.5
+  },
+  "test_7_pdf": {
+    "doc_id": 8,
+    "pages": 2,
+    "chunks": 2,
+    "ingest_ms": 36.6
+  },
+  "test_1_relevant": {
+    "grounded": true,
+    "sources_count": 2,
+    "top_score": 0.9158,
+    "confidence_tier": "strong",
+    "retrieval_ms": 33.1,
+    "generation_ms": 8060.0,
+    "total_ms": 8093.2
+  },
+  "test_2_page_evidence": {
+    "grounded": true,
+    "pages_cited": [
+      2
+    ],
+    "page_2_found": true,
+    "sources_count": 1,
+    "retrieval_ms": 24.0,
+    "total_ms": 6178.4
+  },
+  "test_3_irrelevant": {
+    "grounded": false,
+    "retrieval_count": 0,
+    "answer": "I couldn't find sufficient information to answer this question in the uploaded documents.",
+    "generation_ms": 0.0
+  },
+  "test_4_multi_doc": {
+    "is_comparable": false,
+    "evidence_chunks": 2,
+    "docs_compared": 2,
+    "retrieval_ms": 38.9,
+    "generation_ms": 0.0,
+    "total_ms": 42.5
+  },
+  "test_8_repeated": [
+    {
+      "run": 1,
+      "retrieval_ms": 18.3,
+      "total_ms": 6414.8
+    },
+    {
+      "run": 2,
+      "retrieval_ms": 20.4,
+      "total_ms": 3068.2
+    },
+    {
+      "run": 3,
+      "retrieval_ms": 97.9,
+      "total_ms": 11030.1
+    }
+  ],
+  "test_5_deletion": {
+    "deleted_doc_id": 7,
+    "post_del_grounded": false,
+    "post_del_sources": 0,
+    "post_del_answer": "I couldn't find sufficient information to answer this question in the uploaded documents."
+  }
+}
